@@ -61,6 +61,20 @@ public class Panier{
 			
 	}
 	
+	public void retire(){
+		this.listOrange.remove(getTaille()-1);
+		setTaille(getTaille()-1);
+	}
+	
+	public double getPrix(){
+		double prix=0;
+		
+		for(int i=0; i<getTaille(); i++)
+			prix+=getListOrange(i).getPrix();
+			
+		return prix;	
+	}
+	
 	public static void main( String[] args){
 		
 		Orange o=new Orange(4,"Paris");
@@ -86,6 +100,14 @@ public class Panier{
 		p1.setListOrange(o3,1);
 		
 		System.out.println(p1.getListOrange(1).getOrigine());
+		
+		System.out.println(p1.getPrix());
+		
+		p1.retire();
+		System.out.println(p1.getTaille());
+		
+		
+		
 			
 	
 	}
